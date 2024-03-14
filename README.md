@@ -1,2 +1,3 @@
-# minigames
-Assorted minigames
+# Minigames
+
+Assorted minigames for spare time
