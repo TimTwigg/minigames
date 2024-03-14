@@ -1,1 +1,3 @@
 # Hangman
+
+CLI hangman game
