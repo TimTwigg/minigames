@@ -1,5 +1,5 @@
-# updated 15 March 2024
-# Written during a boring cs lecture
+# Updated 10 April 2024
+# Originally written during a boring cs lecture
 # Enjoy
 
 import random
@@ -101,18 +101,6 @@ class Game:
             self._restart()
             self.play()
 
-# if __name__ == "__main__":
-#     g = Game()
-#     g.loopPlay()
-    
 if __name__ == "__main__":
-    with open("words.txt", "r") as f:
-        words = [w.strip() for w in f.readlines()]
-
-    print(f"Words found: {len(words)}")
-
-    length = 10
-
-    words = [w for w in words if len(w) >= length]
-
-    print(f"Words of length {length}+ found: {len(words)}")
+    g = Game()
+    g.loopPlay()
