@@ -1,13 +1,11 @@
-# updated 24 January 2023
+# Updated 10 April 2024
 
 import tkinter as tk
 from tkinter import simpledialog
 import math
 import random
 import time
-import datetime
 from pathlib import Path
-from tkinter.constants import BOTH
 
 class Square(tk.Frame):
     """
@@ -86,7 +84,7 @@ class Square(tk.Frame):
         return str(d)
 
 
-class Minesweeper(tk.LabelFrame):
+class MinesweeperInstance(tk.LabelFrame):
     """
     Minesweeper object, subclass of tk.LabelFrame
 

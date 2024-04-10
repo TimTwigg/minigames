@@ -5,7 +5,7 @@
 import random
 import os
 
-class Game:
+class Hangman:
     def __init__(self):
         self._restart()
         self.__make_stages__()
@@ -71,7 +71,7 @@ class Game:
     def _isLost(self) -> bool:
         return self.stage >= 10
     
-    def play(self) -> None:
+    def playOne(self) -> None:
         while True:
             os.system("cls")
             self._print()
@@ -92,15 +92,15 @@ class Game:
             print("The word was " + self.word)
             print("Read a dictionary you idiot")
             
-    def loopPlay(self) -> None:
-        self.play()
+    def play(self) -> None:
+        self.playOne()
         while True:
             answer = input("\nPlay again? ")
             if len(answer) > 0:
                 break
             self._restart()
-            self.play()
+            self.playOne()
 
 if __name__ == "__main__":
-    g = Game()
+    g = Hangman()
     g.loopPlay()

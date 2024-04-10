@@ -1,13 +1,13 @@
-# updated 9 February 2023
+# Updated 10 April 2024
 
 import tkinter as tk
 from tkinter import scrolledtext, ttk
-from game import Minesweeper
+from game import MinesweeperInstance
 import datetime
 import time
 from pathlib import Path
 
-class Game(tk.Tk):
+class Minesweeper(tk.Tk):
     """
     Minesweeper game
     """
@@ -26,8 +26,6 @@ class Game(tk.Tk):
         self._draw()
         self.running = self.after(1000, self.update)
         self.insert_records()
-        self.start = time.time()
-        self.mainloop()
 
     def _key_press(self, event):
         if (event.char == " "):
@@ -58,7 +56,7 @@ class Game(tk.Tk):
         self.dimension_choice.pack(side = "right")
         self.dimension_choice.current(4)
 
-        self.game = Minesweeper(self.game_frame, dimension = int(self.dimension_choice.get()), switch = self.running_switch)
+        self.game = MinesweeperInstance(self.game_frame, dimension = int(self.dimension_choice.get()), switch = self.running_switch)
         self.game.pack()
 
         self.bomb_var.set(f"Bombs Remaining: {self.game.bomb_remaining} / {self.game.bomb_count}")
@@ -67,6 +65,13 @@ class Game(tk.Tk):
 
         self.record_panel = scrolledtext.ScrolledText(side_frame, width = 35, height = 11)
         self.record_panel.pack(pady = 10)
+
+    def play(self):
+        """
+        Starts the game
+        """
+        self.start = time.time()
+        self.mainloop()
 
     def insert_records(self):
         """
@@ -97,7 +102,7 @@ class Game(tk.Tk):
         """
         for child in self.game_frame.winfo_children():
             child.destroy()
-        self.game = Minesweeper(self.game_frame, dimension = int(self.dimension_choice.get()), switch = self.running_switch)
+        self.game = MinesweeperInstance(self.game_frame, dimension = int(self.dimension_choice.get()), switch = self.running_switch)
         self.game.pack()
         self.running_switch.set(True)
         self.running = self.after(1000, self.update)
@@ -106,4 +111,4 @@ class Game(tk.Tk):
         self.start = time.time()
 
 if __name__ == "__main__":
-    game = Game()
+    game = Minesweeper()
