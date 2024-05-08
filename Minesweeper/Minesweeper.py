@@ -1,8 +1,8 @@
-# Updated 10 April 2024
+# Updated 8 May 2024
 
 import tkinter as tk
 from tkinter import scrolledtext, ttk
-from game import MinesweeperInstance
+from Minesweeper.game import MinesweeperInstance
 import datetime
 import time
 from pathlib import Path

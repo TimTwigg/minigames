@@ -1,4 +1,4 @@
-# Updated 10 April 2024
+# Updated 8 May 2024
 # Originally written during a boring cs lecture
 # Enjoy
 
@@ -12,7 +12,7 @@ class Hangman:
         self.letters = "abcdefghijklmnopqrstuvwxyz"
 
     def _restart(self) -> None:
-        with open("words.txt", "r") as f:
+        with open("Hangman/words.txt", "r") as f:
             data = f.read()
             words = data.split("\n")
         self.word = random.choice(words)
